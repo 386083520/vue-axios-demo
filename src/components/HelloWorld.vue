@@ -5,11 +5,10 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'HelloWorld',
   mounted() {
-    axios({
+    this.$http({
       method:'get',
       url:'http://localhost:3000/posts/1'
     })
