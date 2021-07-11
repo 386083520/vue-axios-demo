@@ -5,16 +5,20 @@
 </template>
 
 <script>
+import request from "../utils/request";
 export default {
   name: 'HelloWorld',
   mounted() {
-    this.$http({
+    request({
       method:'get',
-      url:'http://localhost:3000/posts/1'
+      url:'/posts/1',
+      timeout: '6000'
     })
       .then(response  => {
-        console.log(response)
-      });
+        console.log('response', response)
+      }).catch(err => {
+        console.log('err', err)
+    })
   },
   data () {
     return {
